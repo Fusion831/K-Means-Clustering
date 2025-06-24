@@ -66,6 +66,8 @@ class KMeansClustering:
         """
         n_samples = X.shape[0]
         labels = np.zeros(n_samples, dtype=int)
+        if self.centroids is None:
+            raise ValueError("Centroids have not been initialized. Call '_initialize_centroids' first.")
 
         for i in range(n_samples):
             data_point = X[i]
